@@ -2,10 +2,12 @@
 #include <string>
 // #include "OpenCVDemo.hpp"
 #include "Demo-Yolo/Yolo.h"
+#include "../Common/SyncQueue/SimpleSyncQueue.h"
 
 int main()
 {
     std::cout << "Main Function Start!" << std::endl;
+#if 0
     cv::Mat img = cv::imread("bus.jpg", 1);
     if (img.empty()) {
         std::cout << "img is empty." << std::endl;
@@ -19,4 +21,6 @@ int main()
     cv::imshow(windowName, img);
     cv::waitKey(0);
     cv::destroyAllWindows();
+#endif
+    SimpleSyncQueueTest();
 }
