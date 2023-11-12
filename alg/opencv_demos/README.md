@@ -12,10 +12,10 @@
 ### 参考链接
 [1] [win10平台使用CMake编译opencv](https://blog.songjiahao.com/archives/352)
 
-二、CMakeLists.txt导入OpenCV
-1. 加入环境变量：
+## 二、CMakeLists.txt导入OpenCV
+### 1. 加入环境变量：
 `D:\01-study\02-opensource\opencv-4.8.0\build\install\x64\mingw\bin`
-2. 编写CMakeLists.txt
+### 2. 编写CMakeLists.txt
 ```
 cmake_minimum_required(VERSION 3.15)
 
@@ -34,3 +34,11 @@ find_package(OpenCV REQUIRED)
 add_executable(${PROJECT_NAME} main.cpp)
 target_link_libraries(${PROJECT_NAME} PRIVATE ${OpenCV_LIBS})
 ```
+
+## 问题记录
+### 问题1：opencv_test_core build Error
+```
+[ 61%] Built target opencv_test_core
+mingw32-make: *** [Makefile:165: all] Error 2
+```
+解决方案：cmake -DCPU_DISPATCH=   # 设置为空
